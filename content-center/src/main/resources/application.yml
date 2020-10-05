@@ -1,0 +1,46 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: content-center
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    url: jdbc:mysql://120.26.177.51:3306/content-center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    hikari:
+      username: root
+      password: abc.123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 120.26.177.51:8848
+#        namespace: ef32c1be-c63c-4db4-8b07-b3b84a7c27ef
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+user-center:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients: user-center
+
+logging:
+  level:
+    com.soft1851.content.feignclient.UserCenterFeignClient: debug
+#feign:
+#  client:
+#    config:
+#      user-center:
+#        loggerLevel: full

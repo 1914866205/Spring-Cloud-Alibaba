@@ -1,0 +1,30 @@
+server:
+  port: 0
+spring:
+  application:
+    name: user-center
+  datasource:
+    url: jdbc:mysql://120.26.177.51:3306/content-center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    hikari:
+      username: root
+      password: abc.123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 120.26.177.51:8848
+#        namespace: ef32c1be-c63c-4db4-8b07-b3b84a7c27ef
+
+        metadata:
+          instance: cc
+          version: 1.0
+          author: tt
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.user-center.ribbon.NFloadBalancerRuleClassName",
+      "type": "java.lang.String",
+      "description": "Description for spring.user-center.ribbon.NFloadBalancerRuleClassName."
+  }
+] }
