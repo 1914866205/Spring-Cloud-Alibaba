@@ -15,8 +15,13 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 120.26.177.51:8848
+        server-addr: localhost:8848
+#        server-addr: 120.26.177.51:8848
 #        namespace: ef32c1be-c63c-4db4-8b07-b3b84a7c27ef
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+
 
 management:
   endpoints:

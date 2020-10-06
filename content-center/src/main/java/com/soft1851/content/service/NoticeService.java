@@ -11,4 +11,10 @@ import com.soft1851.content.domain.entity.Notice;
  */
 public interface NoticeService {
     Notice findById(int id);
+
+    /**
+     * 获得最新的公共
+     * @return
+     */
+    Notice getLatest();
 }

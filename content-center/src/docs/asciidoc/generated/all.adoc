@@ -1,0 +1,701 @@
+= share-app Swagger文档
+
+
+[[_overview]]
+== Overview
+github地址:
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : API V1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : 倪涛涛
+__Contact Email__ : 1914866205@qq.com
+
+
+=== License information
+[%hardbreaks]
+__License__ : Apache
+__License URL__ : http://www.apache.org/
+__Terms of service__ : Terms of service
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:9999
+__BasePath__ : /
+
+
+=== Tags
+
+* controller-hello : Controller Hello
+* share-controller : Share Controller
+* test-controller : Test Controller
+* test-feign-controller : Test Feign Controller
+* 公共接口 : Notice Controller
+
+
+
+
+[[_paths]]
+== Resources
+
+[[_controller-hello_resource]]
+=== Controller-hello
+Controller Hello
+
+
+[[_gethellousingget]]
+==== getHello
+....
+GET /content/call
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_callbyribbonusingget]]
+==== callByRibbon
+....
+GET /content/call/ribbon
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_callbyuserusingget]]
+==== callByUser
+....
+GET /content/call/user/{id}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|id|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_user,User>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_share-controller_resource]]
+=== Share-controller
+Share Controller
+
+
+[[_queryusingget]]
+==== 分享列表
+....
+GET /shares/query
+....
+
+
+===== Description
+分享列表
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**pageNo** +
+__optional__|pageNo|integer (int32)|`1`
+|**Query**|**pageSize** +
+__optional__|pageSize|integer (int32)|`10`
+|**Query**|**title** +
+__optional__|title|string|
+|**Query**|**userId** +
+__optional__|userId|integer (int32)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_c31f48f84ef207e66a03c015a7243b43,分享>> > array
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_findbyidusingget]]
+==== 查询指定id的分享详情
+....
+GET /shares/{id}
+....
+
+
+===== Description
+查询指定id的分享详情
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|id|integer (int32)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_bc417c0e6886ff4f7889502b51bda1fc,分享详情，和发布人昵称>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_test-controller_resource]]
+=== Test-controller
+Test Controller
+
+
+[[_callusercenterusingget]]
+==== callUserCenter
+....
+GET /test/call/hello
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_getinstancesusingget]]
+==== getInstances
+....
+GET /test/discovery
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_serviceinstance,ServiceInstance>> > array
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_getusingget]]
+==== get
+....
+GET /test/get/{info}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**info** +
+__required__|info|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_postusingpost_1]]
+==== post
+....
+POST /test/post
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**info** +
+__required__|info|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_postusingpost]]
+==== post
+....
+POST /test/post/json
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**midUserShare** +
+__required__|midUserShare|<<_midusershare,MidUserShare>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_test-feign-controller_resource]]
+=== Test-feign-controller
+Test Feign Controller
+
+
+[[_baiduindexusingget]]
+==== baiduIndex
+....
+GET /test/baidu
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_postusingget]]
+==== post
+....
+GET /test/test-q
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|Type|Name|Schema
+|**Query**|**id** +
+__optional__|integer (int32)
+|**Query**|**shareId** +
+__optional__|integer (int32)
+|**Query**|**userId** +
+__optional__|integer (int32)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_926ac08843c1f757ae8e532b0daf7186]]
+=== 公共接口
+Notice Controller
+
+
+[[_getnoticeusingget]]
+==== 查询最新的一条公告
+....
+GET /notice/one
+....
+
+
+===== Description
+查询最新的一条公告
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fa86f1a57d6f758a93cb33b59c015654,公告>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_midusershare]]
+=== MidUserShare
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**id** +
+__optional__|integer (int32)
+|**shareId** +
+__optional__|integer (int32)
+|**userId** +
+__optional__|integer (int32)
+|===
+
+
+[[_serviceinstance]]
+=== ServiceInstance
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**host** +
+__optional__|string
+|**instanceId** +
+__optional__|string
+|**metadata** +
+__optional__|< string, string > map
+|**port** +
+__optional__|integer (int32)
+|**scheme** +
+__optional__|string
+|**secure** +
+__optional__|boolean
+|**serviceId** +
+__optional__|string
+|**uri** +
+__optional__|<<_uri,URI>>
+|===
+
+
+[[_timestamp]]
+=== Timestamp
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**date** +
+__optional__|integer (int32)
+|**day** +
+__optional__|integer (int32)
+|**hours** +
+__optional__|integer (int32)
+|**minutes** +
+__optional__|integer (int32)
+|**month** +
+__optional__|integer (int32)
+|**nanos** +
+__optional__|integer (int32)
+|**seconds** +
+__optional__|integer (int32)
+|**time** +
+__optional__|integer (int64)
+|**timezoneOffset** +
+__optional__|integer (int32)
+|**year** +
+__optional__|integer (int32)
+|===
+
+
+[[_uri]]
+=== URI
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**absolute** +
+__optional__|boolean
+|**authority** +
+__optional__|string
+|**fragment** +
+__optional__|string
+|**host** +
+__optional__|string
+|**opaque** +
+__optional__|boolean
+|**path** +
+__optional__|string
+|**port** +
+__optional__|integer (int32)
+|**query** +
+__optional__|string
+|**rawAuthority** +
+__optional__|string
+|**rawFragment** +
+__optional__|string
+|**rawPath** +
+__optional__|string
+|**rawQuery** +
+__optional__|string
+|**rawSchemeSpecificPart** +
+__optional__|string
+|**rawUserInfo** +
+__optional__|string
+|**scheme** +
+__optional__|string
+|**schemeSpecificPart** +
+__optional__|string
+|**userInfo** +
+__optional__|string
+|===
+
+
+[[_user]]
+=== User
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**avatarUrl** +
+__optional__|string
+|**bonus** +
+__optional__|integer (int32)
+|**createTime** +
+__optional__|<<_timestamp,Timestamp>>
+|**id** +
+__optional__|integer (int32)
+|**roles** +
+__optional__|string
+|**updateTime** +
+__optional__|<<_timestamp,Timestamp>>
+|**wxId** +
+__optional__|string
+|**wxNickname** +
+__optional__|string
+|===
+
+
+[[_fa86f1a57d6f758a93cb33b59c015654]]
+=== 公告
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**content** +
+__optional__|内容|string
+|**createTime** +
+__optional__|创建时间|<<_timestamp,Timestamp>>
+|**id** +
+__optional__|公告id|integer (int32)
+|**showFlag** +
+__optional__|是否显示 0 ：否 1：是|boolean
+|===
+
+
+[[_c31f48f84ef207e66a03c015a7243b43]]
+=== 分享
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**auditStatus** +
+__optional__|编辑状态|string
+|**author** +
+__optional__|作者姓名|string
+|**buyCount** +
+__optional__|购买数量|integer (int32)
+|**cover** +
+__optional__|封面|string
+|**createTime** +
+__optional__|创建时间|<<_timestamp,Timestamp>>
+|**downloadUrl** +
+__optional__|下载地址|string
+|**id** +
+__optional__|分享id|integer (int32)
+|**isOriginal** +
+__optional__|是否原创|integer (int32)
+|**price** +
+__optional__|价格|integer (int32)
+|**reason** +
+__optional__|原因|string
+|**showFlag** +
+__optional__|是否显示 0 ：否 1：是|boolean
+|**summary** +
+__optional__|总数|string
+|**title** +
+__optional__|分享内容标题|string
+|**updateTime** +
+__optional__|更新|<<_timestamp,Timestamp>>
+|**userId** +
+__optional__|分享人id|integer (int32)
+|===
+
+
+[[_bc417c0e6886ff4f7889502b51bda1fc]]
+=== 分享详情，和发布人昵称
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**share** +
+__optional__|分享资源信息|<<_c31f48f84ef207e66a03c015a7243b43,分享>>
+|**wxNickname** +
+__optional__|发布人昵称|string
+|===
+
+
+
+
+

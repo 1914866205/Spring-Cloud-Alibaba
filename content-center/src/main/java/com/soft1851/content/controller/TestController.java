@@ -1,6 +1,9 @@
 package com.soft1851.content.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.soft1851.content.domain.entity.MidUserShare;
+import com.soft1851.content.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -26,6 +29,7 @@ public class TestController {
     private DiscoveryClient discoveryClient;
     @Autowired
     private RestTemplate restTemplate;
+    private TestService testService;
 
     /**
      * 测试：服务发现，证明内容中心总能找到用户中心
@@ -55,19 +59,44 @@ public class TestController {
 //        log.info("请求的目标地址：{}", targetUrls.get(i2));
         return restTemplate.getForObject(targetUrl, String.class);
     }
+
     @GetMapping("/get/{info}")
     public String get(@PathVariable String info) {
-        return "来自get请求发送的消息:"+info;
+        return "来自get请求发送的消息:" + info;
     }
 
     @PostMapping("/post")
     public String post(@RequestBody String info) {
-        return "来自post请求发送的消息:"+info;
+        return "来自post请求发送的消息:" + info;
     }
 
     @PostMapping("/post/json")
     public String post(@RequestBody MidUserShare midUserShare) {
-        return "来自post请求发送的消息:"+midUserShare;
+        return "来自post请求发送的消息:" + midUserShare;
+    }
+
+
+    @GetMapping("/test-a")
+    public String testA() {
+        testService.conmmonMethod();
+        return "test-a";
+    }
+
+    @GetMapping("/test-b")
+    public String testB() {
+        testService.conmmonMethod();
+        return "test-b";
+    }
+
+    @GetMapping("byResource")
+    @SentinelResource(value = "byResource", blockHandler = "handleException")       //这个value必须和 Sentinel 的资源名一样
+    public String byResource() {
+        return "按名称限流";
+    }
+
+
+    public String handleException(BlockException blockException) {
+        return "服务不可用";
     }
 
 }
