@@ -2,8 +2,10 @@ package com.soft1851.content.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.alibaba.nacos.client.config.impl.CacheData;
 import com.soft1851.content.domain.entity.MidUserShare;
 import com.soft1851.content.service.TestService;
+import com.soft1851.md5test.service.MD5Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -30,6 +32,8 @@ public class TestController {
     @Autowired
     private RestTemplate restTemplate;
     private TestService testService;
+    @Autowired
+    private MD5Service md5Service;
 
     /**
      * 测试：服务发现，证明内容中心总能找到用户中心
@@ -99,4 +103,9 @@ public class TestController {
         return "服务不可用";
     }
 
+
+    @GetMapping("/test")
+    public String getMD5(){
+        return "MD5加密结果为：" + md5Service.getMD5("helloworld");
+    }
 }

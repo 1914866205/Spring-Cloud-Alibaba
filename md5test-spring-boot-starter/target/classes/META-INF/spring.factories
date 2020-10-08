@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.soft1851.md5test.autoconfiguration.MD5Configuration

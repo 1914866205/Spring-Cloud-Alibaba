@@ -2,6 +2,7 @@ package com.soft1851.user.controller;
 
 import com.soft1851.user.entity.MidUserShare;
 import com.soft1851.user.entity.User;
+import com.soft1851.user.entity.dto.UserAddBonusMsgDTO;
 import com.soft1851.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +32,15 @@ public class UserController {
     public User findById(@PathVariable int id) {
         return userService.findUserById(id);
     }
+
     @PostMapping("/post/json")
     public String post(@RequestBody MidUserShare midUserShare) {
-        return "来自post请求发送的消息:"+midUserShare;
+        return "来自post请求发送的消息:" + midUserShare;
+    }
+
+    @PostMapping("/update/bonus")
+    public User updateBonus(@RequestBody UserAddBonusMsgDTO updateBonus){
+        System.out.println(updateBonus);
+        return userService.updateBonus(updateBonus);
     }
 }

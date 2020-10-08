@@ -1,6 +1,8 @@
 package com.soft1851.content.service;
 
 import com.github.pagehelper.PageInfo;
+import com.soft1851.content.domain.dto.ContributeDto;
+import com.soft1851.content.domain.dto.ShareAuditDTO;
 import com.soft1851.content.domain.dto.ShareDTO;
 import com.soft1851.content.domain.entity.Share;
 
@@ -33,4 +35,20 @@ public interface ShareService {
      * @return
      */
     PageInfo<Share> query(String title, Integer pageNo, Integer pageSize, Integer userId);
+
+    /**
+     * 投稿
+     * @param contributeDto
+     * @return
+     */
+    String addContribute(ContributeDto contributeDto);
+
+    /**
+     * 审核投稿
+     * @param id
+     * @param shareAuditDTO
+     * @return
+     */
+    Share auditById(Integer id, ShareAuditDTO shareAuditDTO);
+
 }

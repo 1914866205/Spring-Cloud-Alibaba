@@ -16,11 +16,11 @@ public enum AuditStatusEnum {
     /**
      * 待审核
      */
-    NOT_YES,
+    NOT_YET,
     /**
      * 审核通过
      */
-    PASSED,
+    PASS    ,
     /**
      * 审核不通过
      */

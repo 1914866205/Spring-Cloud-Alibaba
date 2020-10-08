@@ -7,10 +7,13 @@ spring:
     allow-bean-definition-overriding: true
 
   datasource:
-    url: jdbc:mysql://120.26.177.51:3306/content-center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://120.26.177.51:3306/content-center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/content-center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     hikari:
+#      username: root
+#      password: abc.123
       username: root
-      password: abc.123
+      password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
@@ -49,3 +52,8 @@ logging:
 #    config:
 #      user-center:
 #        loggerLevel: full
+
+rocketmq:
+  name-server: 120.26.177.51:9876
+  producer:
+    group: test-group

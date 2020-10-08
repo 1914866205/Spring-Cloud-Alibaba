@@ -36,8 +36,6 @@ public class BonusEventLog {
     private String event;
     @Column(name = "create_time")
     private Timestamp createTime;
-    @Column(name = "update_time")
-    private Timestamp updateTime;
     @Column(name = "description")
     private String description;
 }

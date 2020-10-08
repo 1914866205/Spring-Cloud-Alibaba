@@ -1,9 +1,12 @@
 package com.soft1851.content.feignclient;
 
+import com.soft1851.content.domain.dto.UserAddBonusMsgDTO;
 import com.soft1851.content.domain.dto.UserDTO;
+import com.soft1851.content.domain.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @author 倪涛涛
@@ -28,5 +31,15 @@ public interface UserCenterFeignClient {
      */
     @GetMapping("/user/hello")
     String sayHello();
+
+    /**
+     * http://user-center/user/update/bonus
+     * @param
+     * @return
+     */
+    @GetMapping("/user/update/bonus")
+    User updateBonus(@RequestBody UserAddBonusMsgDTO updateBonus);
+
+
 
 }

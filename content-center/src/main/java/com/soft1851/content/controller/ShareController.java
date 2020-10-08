@@ -1,6 +1,7 @@
 package com.soft1851.content.controller;
 
 import com.purgeteam.dispose.starter.annotation.IgnoreResponseAdvice;
+import com.soft1851.content.domain.dto.ContributeDto;
 import com.soft1851.content.domain.dto.ShareDTO;
 import com.soft1851.content.domain.entity.Share;
 import com.soft1851.content.service.ShareService;
@@ -28,7 +29,7 @@ public class ShareController {
     private final ShareService shareService;
 
     @GetMapping(value = "/{id}")
-    @ApiOperation(value = "查询指定id的分享详情",notes="查询指定id的分享详情")
+    @ApiOperation(value = "查询指定id的分享详情", notes = "查询指定id的分享详情")
     public ShareDTO findById(@PathVariable Integer id) {
         return shareService.findById(id);
     }
@@ -43,15 +44,19 @@ public class ShareController {
     @GetMapping("/query")
     @ApiOperation(value = "分享列表", notes = "分享列表")
     public List<Share> query(
-        @RequestParam(required = false) String title,
-        @RequestParam(required = false,defaultValue = "1") Integer pageNo,
-        @RequestParam(required = false,defaultValue = "10") Integer pageSize,
-        @RequestParam(required = false)Integer userId)throws Exception{
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false, defaultValue = "1") Integer pageNo,
+            @RequestParam(required = false, defaultValue = "10") Integer pageSize,
+            @RequestParam(required = false) Integer userId) throws Exception {
         if (pageSize > 100) {
             pageSize = 100;
         }
         return this.shareService.query(title, pageNo, pageSize, userId).getList();
-
     }
 
+    @PostMapping("/contribute")
+    @ApiOperation(value = "投稿", notes = "投稿")
+    public String contribute(@RequestBody ContributeDto contributeDto) {
+        return shareService.addContribute(contributeDto);
+    }
 }
