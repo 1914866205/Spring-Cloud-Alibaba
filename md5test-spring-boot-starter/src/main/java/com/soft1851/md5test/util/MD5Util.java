@@ -13,6 +13,7 @@ public class MD5Util {
     public static String getMD5(String source) {
         return getMD5(source.getBytes());
     }
+
     public static String getMD5(byte[] source) {
         String s = null;
         char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};

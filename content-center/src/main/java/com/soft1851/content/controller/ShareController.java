@@ -1,17 +1,23 @@
 package com.soft1851.content.controller;
 
 import com.purgeteam.dispose.starter.annotation.IgnoreResponseAdvice;
+import com.soft1851.content.common.ResponseResult;
 import com.soft1851.content.domain.dto.ContributeDto;
 import com.soft1851.content.domain.dto.ShareDTO;
 import com.soft1851.content.domain.entity.Share;
 import com.soft1851.content.service.ShareService;
+import com.soft1851.content.util.JwtOperator;
+import io.jsonwebtoken.Claims;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+import sun.rmi.runtime.Log;
 
 import java.util.List;
 
@@ -22,11 +28,13 @@ import java.util.List;
  * @Description TODO
  * @createTime 2020年09月29日 20:43:00
  */
+@Slf4j
 @RestController
-@RequestMapping(value = "/shares")
+@RequestMapping(value = "/share")
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
 public class ShareController {
     private final ShareService shareService;
+    private final JwtOperator jwtOperator;
 
     @GetMapping(value = "/{id}")
     @ApiOperation(value = "查询指定id的分享详情", notes = "查询指定id的分享详情")
@@ -43,15 +51,27 @@ public class ShareController {
 
     @GetMapping("/query")
     @ApiOperation(value = "分享列表", notes = "分享列表")
-    public List<Share> query(
+    public ResponseResult query(
             @RequestParam(required = false) String title,
             @RequestParam(required = false, defaultValue = "1") Integer pageNo,
             @RequestParam(required = false, defaultValue = "10") Integer pageSize,
-            @RequestParam(required = false) Integer userId) throws Exception {
+            @RequestHeader(value = "X-Token", required = false) String token) {
         if (pageSize > 100) {
             pageSize = 100;
         }
-        return this.shareService.query(title, pageNo, pageSize, userId).getList();
+        Integer userId = null;
+        if (StringUtils.isNotBlank(token)) {
+            Claims claims = this.jwtOperator.getClaimsFromToken(token);
+            log.info(claims.toString());
+            userId = (Integer) claims.get("id");
+        }else {
+            log.info("没有token");
+        }
+
+        List<Share> list = this.shareService.query(title, pageNo, pageSize, userId).getList();
+        ResponseResult build = ResponseResult.builder().code(0).msg("200").data(list).build();
+        System.out.println(build.toString());
+        return build;
     }
 
     @PostMapping("/contribute")

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface UserCenterFeignClient {
     /**
      * http://user-center/user/find/{id}
+     *
      * @param id
      * @return
      */
@@ -34,12 +35,12 @@ public interface UserCenterFeignClient {
 
     /**
      * http://user-center/user/update/bonus
+     *
      * @param
      * @return
      */
     @GetMapping("/user/update/bonus")
     User updateBonus(@RequestBody UserAddBonusMsgDTO updateBonus);
-
 
 
 }

@@ -21,6 +21,7 @@ import tk.mybatis.mapper.entity.Example;
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
 public class NoticeServiceImpl implements NoticeService {
     private final NoticeMapper noticeMapper;
+
     @Override
     public Notice findById(int id) {
         return noticeMapper.selectByPrimaryKey(id);

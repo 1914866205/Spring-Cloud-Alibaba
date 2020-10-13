@@ -14,6 +14,7 @@ public interface NoticeService {
 
     /**
      * 获得最新的公共
+     *
      * @return
      */
     Notice getLatest();

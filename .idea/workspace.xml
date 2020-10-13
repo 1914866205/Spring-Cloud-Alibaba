@@ -1,54 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34c9ae76-6853-422a-9ae5-049ab37ef2af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/NacosWeightedRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/UserCenterRibbonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/controller/ControllerHello.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/entity/BonusEventLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/entity/MidUserShare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/entity/Notice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/entity/Share.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/mapper/BonusEventLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/mapper/MidUserShareMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/mapper/NoticeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/mapper/ShareMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/Impl/MidUserShareServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/Impl/NoticeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/Impl/ShareServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/MidUserShareService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/NoticeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/ShareService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/java/ribbonconfig/RibbonConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content-center/src/test/java/com/soft1851/content/service/Impl/ShareServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/entity/BonusEventLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/entity/MidUserShare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/entity/Notice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/entity/Share.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/mapper/BonusEventLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/mapper/MidUserShareMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/mapper/NoticeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/mapper/ShareMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/service/BonusEventLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/service/impl/BonusEventLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-center/src/test/java/com/soft1851/user/service/impl/UserServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e381494b-84d8-494f-a5cc-39f5112f631e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/spring-cloud-alibaba.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/content-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/docs/asciidoc/html/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/docs/asciidoc/html/all.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/ContentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/ContentApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content-center/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/UserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-center/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/SentineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/SentineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/TestFeignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/TestFeignController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/GlobalFeignConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/GlobalFeignConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/NacosWeightedRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/NacosWeightedRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/UserCenterFeignConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/configuration/UserCenterFeignConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/controller/ShareAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/controller/ShareAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/domain/entity/Notice.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/domain/entity/Notice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/domain/enums/AuditStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/domain/enums/AuditStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/feignclient/UserCenterFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/feignclient/UserCenterFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/Impl/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/Impl/NoticeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/ShareService.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/ShareService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/java/com/soft1851/content/service/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/content-center/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/md5test-spring-boot-starter/src/main/java/com/soft1851/md5test/autoconfiguration/MD5Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/md5test-spring-boot-starter/src/main/java/com/soft1851/md5test/autoconfiguration/MD5Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/md5test-spring-boot-starter/src/main/java/com/soft1851/md5test/util/MD5Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/md5test-spring-boot-starter/src/main/java/com/soft1851/md5test/util/MD5Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/service/impl/BonusEventLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/main/java/com/soft1851/user/service/impl/BonusEventLogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-center/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-center/src/test/java/com/soft1851/user/StudyApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-center/src/test/java/com/soft1851/user/StudyApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,13 +46,13 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\CompcuteApplication\tools\mavenjar" />
+        <option name="localRepository" value="D:\CompcuteApplication\tools\maven-jar\maven_jar" />
         <option name="mavenHome" value="$PROJECT_DIR$/../../../tools/apache-maven-3.6.3" />
         <option name="userSettingsFile" value="D:\CompcuteApplication\tools\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1hr747hQtIYde4omlEsQ2X7RKVN" />
+  <component name="ProjectId" id="1icQs7kNkaMirqFxSZvGRQyQYFa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -78,14 +62,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-center" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="StudyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-cloud-alibaba" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.soft1851.study.StudyApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sift1851.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,14 +94,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="34c9ae76-6853-422a-9ae5-049ab37ef2af" name="Default Changelist" comment="" />
-      <created>1600757165799</created>
+      <changelist id="e381494b-84d8-494f-a5cc-39f5112f631e" name="Default Changelist" comment="" />
+      <created>1602204603500</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1600757165799</updated>
-      <workItem from="1600757172764" duration="623000" />
-      <workItem from="1600758486152" duration="93000" />
-      <workItem from="1601364642828" duration="49000" />
+      <updated>1602204603500</updated>
+      <workItem from="1602204613181" duration="167000" />
     </task>
     <servers />
   </component>
@@ -126,13 +107,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="371" y="152" key="FileChooserDialogImpl" timestamp="1601364689515">
+    <state x="932" y="167" key="FileChooserDialogImpl" timestamp="1602204771274">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="371" y="152" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601364689515" />
-    <state x="0" y="0" key="new project wizard" timestamp="1600758577104">
+    <state x="932" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602204771274" />
+    <state x="356" y="0" key="new project wizard" timestamp="1602204779849">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="0" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1600758577104" />
+    <state x="356" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1602204779849" />
   </component>
 </project>

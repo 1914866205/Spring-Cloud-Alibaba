@@ -51,5 +51,5 @@ public class NacosWeightedRule extends AbstractLoadBalancerRule {
         } catch (NacosException e) {
             return null;
         }
-     }
+    }
 }

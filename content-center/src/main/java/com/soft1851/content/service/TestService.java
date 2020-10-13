@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class TestService {
-    public String conmmonMethod(){
+    public String conmmonMethod() {
         log.info("info...........");
         return "common";
     }

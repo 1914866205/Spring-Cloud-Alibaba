@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
 public class BonusEventLogServiceImpl implements BonusEventLogService {
     private final BonusEventLogMapper bonusEventLogMapper;
+
     @Override
     public BonusEventLog findBonusEventLogById(int id) {
         return bonusEventLogMapper.selectByPrimaryKey(id);

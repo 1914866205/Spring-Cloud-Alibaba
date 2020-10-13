@@ -24,12 +24,14 @@ public class TestFeignController {
     private TestUserCenterFeignClient testUserCenterFeignClient;
     @Autowired
     private TestBaiduFeignClient testBaiduFeignClient;
+
     @GetMapping(value = "/test-q")
     public String post(MidUserShare midUserShare) {
         return testUserCenterFeignClient.post(midUserShare);
     }
+
     @GetMapping(value = "/baidu")
-    public String baiduIndex(){
+    public String baiduIndex() {
         return testBaiduFeignClient.index();
     }
 

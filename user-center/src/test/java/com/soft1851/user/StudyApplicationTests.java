@@ -7,12 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class StudyApplicationTests {
 
 
-
     @Test
-    public void test(){
+    public void test() {
         int c = 3;
-        if(c>0)
-            if(c>3)
+        if (c > 0)
+            if (c > 3)
                 c = 2;
             else c = 3;
         else c = 4;

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MD5Configuration {
     @Bean
-    MD5Service md5Service(){
+    MD5Service md5Service() {
         return new MD5Service();
     }
 }

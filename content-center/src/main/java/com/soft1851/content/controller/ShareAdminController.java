@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
 public class ShareAdminController {
     private final ShareService shareService;
+
     @PutMapping(value = "/audit/{id}")
     public Share auditById(@PathVariable Integer id, @RequestBody ShareAuditDTO shareAuditDTO) {
         //此处需要认证授权

@@ -31,7 +31,7 @@ public class Notice {
     @Id
     @GeneratedValue(generator = "JDBC")
     @Column(name = "id")
-    @ApiModelProperty(name = "id",value = "公告id")
+    @ApiModelProperty(name = "id", value = "公告id")
     private Integer id;
 
     @Column(name = "create_time")
@@ -40,11 +40,11 @@ public class Notice {
     @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createTime;
 
-    @ApiModelProperty(name = "content",value = "内容")
+    @ApiModelProperty(name = "content", value = "内容")
     @Column(name = "content")
     private String content;
 
-    @ApiModelProperty(name = "showFlag",value = "是否显示 0 ：否   1：是")
+    @ApiModelProperty(name = "showFlag", value = "是否显示 0 ：否   1：是")
     @Column(name = "show_flag")
     private Boolean showFlag;
 }

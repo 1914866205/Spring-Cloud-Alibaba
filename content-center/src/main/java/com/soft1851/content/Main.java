@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Main {
     /**
      * 遍历指定目录下（包括其子目录）的所有文件，并删除以 lastUpdated 结尾的文件
+     *
      * @param dir 目录的位置 path
      * @throws IOException
      */
@@ -30,10 +31,10 @@ public class Main {
                 if (file.isDirectory())
                     //递归
                     listDirectory(file);
-                else{ // 删除以 lastUpdated 结尾的文件
+                else { // 删除以 lastUpdated 结尾的文件
                     String fileName = file.getName();
                     boolean isLastupdated = fileName.toLowerCase().endsWith("lastupdated");
-                    if (isLastupdated){
+                    if (isLastupdated) {
                         boolean is_delete = file.delete();
                         System.out.println("删除的文件名 => " + file.getName() + "  || 是否删除成功？ ==> " + is_delete);
                     }

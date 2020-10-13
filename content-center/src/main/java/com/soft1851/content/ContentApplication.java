@@ -18,10 +18,10 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @MapperScan("com.soft1851.content.mapper")
-@EnableFeignClients(defaultConfiguration = GlobalFeignConfiguration.class)
-//@EnableFeignClients
+//@EnableFeignClients(defaultConfiguration = GlobalFeignConfiguration.class)
+@EnableFeignClients
 //@EnableSwagger2
-@EnableGlobalDispose
+//@EnableGlobalDispose
 public class ContentApplication {
 
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class ContentApplication {
 
     @Bean
     @LoadBalanced
-    public AsyncRestTemplate asyncRestTemplate(){
+    public AsyncRestTemplate asyncRestTemplate() {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         //设置链接超时时间
         factory.setConnectTimeout(100);

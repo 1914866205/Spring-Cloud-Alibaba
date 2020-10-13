@@ -1,0 +1,50 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: path_route1
+          uri: lb://user-center
+          predicates:
+            - Path=/users/**
+        - id: payh_route2
+          uri: lb://content-center
+          predicates:
+            - Path=/shares/**
+        - id: path=_routes3
+          uri: lb://content-center
+          predicates:
+            - Path=/notices/**
+#        - id: header-gateway
+#          uri: http://localhost:8090/user/hello
+#          predicates:
+#            - Path=/user/hello
+#            - After=2020-10-09T11:00:00+08:00[Asia/Shanghai]
+#        - id: header-gateway
+#          uri: http://localhost:8090/user/hello
+#          predicates:
+##            - Header=username,ntt
+##            - Cookie=username,ntt
+#            - TimeBetween=下午12:00,下午5:00
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+logging:
+  level:
+    org.springframework.cloud.gateway: trace

@@ -1,6 +1,7 @@
 package com.soft1851.user.service;
 
 import com.soft1851.user.entity.User;
+import com.soft1851.user.entity.dto.LoginDTO;
 import com.soft1851.user.entity.dto.UserAddBonusMsgDTO;
 
 /**
@@ -14,4 +15,6 @@ public interface UserService {
     User findUserById(int id);
 
     User updateBonus(UserAddBonusMsgDTO updateBonus);
+
+    User login(LoginDTO loginDTO,String openid);
 }

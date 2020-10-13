@@ -105,7 +105,7 @@ public class TestController {
 
 
     @GetMapping("/test")
-    public String getMD5(){
+    public String getMD5() {
         return "MD5加密结果为：" + md5Service.getMD5("helloworld");
     }
 }

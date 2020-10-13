@@ -1,5 +1,6 @@
 server:
-  port: 0
+#  port: 0
+  port: 8090
 spring:
   application:
     name: user-center
@@ -15,9 +16,9 @@ spring:
   cloud:
     nacos:
       discovery:
-#        server-addr: 120.26.177.51:8848
+        #        server-addr: 120.26.177.51:8848
         server-addr: localhost:8848
-#        namespace: ef32c1be-c63c-4db4-8b07-b3b84a7c27ef
+        #        namespace: ef32c1be-c63c-4db4-8b07-b3b84a7c27ef
 
         metadata:
           instance: cc
@@ -34,3 +35,7 @@ management:
       show-details: always
 rocketmq:
   name-server: 120.26.177.51:9876
+
+jwt:
+  secret: aaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccddddd
+  expire-time-in-second: 123456

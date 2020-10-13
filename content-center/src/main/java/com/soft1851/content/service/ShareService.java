@@ -28,6 +28,7 @@ public interface ShareService {
 
     /**
      * 根据标题迷糊查询某个用户的分析列表数据，title为空则为所有数据，查询结果分页
+     *
      * @param title
      * @param pageNo
      * @param pageSize
@@ -38,6 +39,7 @@ public interface ShareService {
 
     /**
      * 投稿
+     *
      * @param contributeDto
      * @return
      */
@@ -45,6 +47,7 @@ public interface ShareService {
 
     /**
      * 审核投稿
+     *
      * @param id
      * @param shareAuditDTO
      * @return
