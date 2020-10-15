@@ -1,5 +1,6 @@
 package com.soft1851.content.util;
 
+import com.google.common.collect.Maps;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -114,20 +116,20 @@ public Claims getClaimsFromToken(String token) {
         return !isTokenExpired(token);
     }
 
-    //public static void main(String[] args) {
+    public static void main(String[] args) {
         // 1. 初始化
-        //JwtOperator jwtOperator = new JwtOperator();
-        //jwtOperator.expirationTimeInSecond = 1209600L;
-        //jwtOperator.secret = "aaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccddddd";
+        JwtOperator jwtOperator = new JwtOperator();
+        jwtOperator.expirationTimeInSecond = 1209600L;
+        jwtOperator.secret = "aaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccddddd";
 
-        // 2.设置用户信息
-        //HashMap<String, Object> objectObjectHashMap = Maps.newHashMap();
-        //objectObjectHashMap.put("id", "1");
+//         2.设置用户信息
+        HashMap<String, Object> objectObjectHashMap = Maps.newHashMap();
+        objectObjectHashMap.put("id", "1");
 
-        // 测试1: 生成token
-        //String token = jwtOperator.generateToken(objectObjectHashMap);
-        //// 会生成类似该字符串的内容: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJpYXQiOjE1NjU1ODk4MTcsImV4cCI6MTU2Njc5OTQxN30.27_QgdtTg4SUgxidW6ALHFsZPgMtjCQ4ZYTRmZroKCQ
-        //System.out.println(token);
+//         测试1: 生成token
+        String token = jwtOperator.generateToken(objectObjectHashMap);
+        // 会生成类似该字符串的内容: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJpYXQiOjE1NjU1ODk4MTcsImV4cCI6MTU2Njc5OTQxN30.27_QgdtTg4SUgxidW6ALHFsZPgMtjCQ4ZYTRmZroKCQ
+        System.out.println(token);
 
         // 将这串字符还原为上面生成的token!!!
         //String someToken = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJpYXQiOjE2MDI1NjkzNzQsImV4cCI6MTYwMzc3ODk3NH0.filbMWYqwMfR5fLOJwm5nb8MrRjpTzqIkuHupsUMvGE";
@@ -153,5 +155,5 @@ public Claims getClaimsFromToken(String token) {
         //
         //// 测试6: 这是一个被篡改的token，因此会报异常，说明JWT是安全的
         //boolean flag = jwtOperator.validateToken("eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJpYXQiOjE2MDI1NjkzNzQsImV4cCI6MTYwMzc3ODk3NH0.filbMWYqwMfR5fLddwm5nb8MrRjpTzq444uHupsUMvGE");
-    //}
+    }
 }

@@ -26,7 +26,7 @@ public class ControllerHello {
 
     @GetMapping(value = "/call")
     public String getHello() {
-        return restTemplate.getForObject("http://localhost:8082/user/hello", String.class);
+        return restTemplate.getForObject("http://localhost:8090/user/hello", String.class);
     }
 
     @GetMapping(value = "/call/ribbon")

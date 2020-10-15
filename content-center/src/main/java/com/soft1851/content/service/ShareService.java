@@ -1,6 +1,7 @@
 package com.soft1851.content.service;
 
 import com.github.pagehelper.PageInfo;
+import com.soft1851.content.common.ResponseResult;
 import com.soft1851.content.domain.dto.ContributeDto;
 import com.soft1851.content.domain.dto.ShareAuditDTO;
 import com.soft1851.content.domain.dto.ShareDTO;
@@ -54,4 +55,18 @@ public interface ShareService {
      */
     Share auditById(Integer id, ShareAuditDTO shareAuditDTO);
 
+    /**
+     * 兑换
+     * @param userId
+     * @param shareId
+     * @return
+     */
+    ResponseResult exchange(String userId, String shareId);
+
+    /**
+     * 查询我的兑换
+     * @param userId
+     * @return
+     */
+    ResponseResult queryMy(Integer userId);
 }

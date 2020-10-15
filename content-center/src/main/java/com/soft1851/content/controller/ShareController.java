@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 import sun.rmi.runtime.Log;
 
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -64,11 +65,12 @@ public class ShareController {
             Claims claims = this.jwtOperator.getClaimsFromToken(token);
             log.info(claims.toString());
             userId = (Integer) claims.get("id");
-        }else {
+        } else {
             log.info("没有token");
         }
 
         List<Share> list = this.shareService.query(title, pageNo, pageSize, userId).getList();
+        System.out.println("查询的结果" + list.toString());
         ResponseResult build = ResponseResult.builder().code(0).msg("200").data(list).build();
         System.out.println(build.toString());
         return build;
@@ -79,4 +81,19 @@ public class ShareController {
     public String contribute(@RequestBody ContributeDto contributeDto) {
         return shareService.addContribute(contributeDto);
     }
+
+    @GetMapping("/query/my")
+    @ApiOperation(value = "分享列表", notes = "分享列表")
+    public ResponseResult query(@RequestParam Integer userId) {
+        return shareService.queryMy(userId);
+    }
+
+
+    @GetMapping("/exchange")
+    @ApiOperation(value = "兑换", notes = "兑换")
+    public ResponseResult exchange(@RequestParam String userId, @RequestParam String shareId) {
+        return shareService.exchange(userId, shareId);
+    }
+
+
 }

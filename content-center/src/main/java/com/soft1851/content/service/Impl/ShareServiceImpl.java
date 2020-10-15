@@ -1,15 +1,23 @@
 package com.soft1851.content.service.Impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.gson.JsonObject;
+import com.soft1851.content.common.ResponseResult;
 import com.soft1851.content.domain.dto.*;
 import com.soft1851.content.domain.entity.MidUserShare;
 import com.soft1851.content.domain.entity.Share;
+import com.soft1851.content.domain.entity.User;
 import com.soft1851.content.domain.enums.AuditStatusEnum;
 import com.soft1851.content.feignclient.UserCenterFeignClient;
 import com.soft1851.content.mapper.MidUserShareMapper;
 import com.soft1851.content.mapper.ShareMapper;
+import com.soft1851.content.mapper.UserMapper;
 import com.soft1851.content.service.ShareService;
+import com.soft1851.content.service.UserService;
+import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
@@ -25,6 +33,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.Year;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -66,14 +75,18 @@ public class ShareServiceImpl implements ShareService {
         // 3. 难以相应需求的变化，变化很没有幸福感
         // 4. 编程体验不统一
 
-        UserDTO userDTO = userCenterFeignClient.findUserById(userId);
+        Object data = userCenterFeignClient.findUserById(userId).getData();
+        User user = JSONObject.parseObject(JSON.toJSON(data).toString(), User.class);
         ShareDTO shareDTO = new ShareDTO();
         //属性的装配
         BeanUtils.copyProperties(share, shareDTO);
-        shareDTO.setWxNickname(userDTO.getWxNickname());
+        shareDTO.setWxNickname(user.getWxNickname());
         return shareDTO;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String sayHello() {
         return userCenterFeignClient.sayHello();
@@ -175,5 +188,50 @@ public class ShareServiceImpl implements ShareService {
                             .build());
         }
         return share;
+    }
+
+    @Override
+    public ResponseResult exchange(String userId, String shareId) {
+        /**
+         * 兑换步骤
+         * 前端传来userId和shareId
+         * */
+        //1.根据userId查询用户
+//        User user = JSONObject.parseObject(String.valueOf(userCenterFeignClient.findUserById(Integer.parseInt(userId)).getData()), User.class);
+        Object data = userCenterFeignClient.findUserById(Integer.parseInt(userId)).getData();
+        User user = JSONObject.parseObject(JSON.toJSON(data).toString(), User.class);
+        System.out.println("user========================================================================" + user.toString());
+        //2.根据shareId查询share
+        Share share = shareMapper.selectByPrimaryKey(shareId);
+        System.out.println("share=========================================================================" + share.toString());
+        //3.积分相减
+        final int result = user.getBonus() - share.getPrice();
+        if (result < 0) {
+            //3.1如果<0，兑换失败，
+            return ResponseResult.builder().code(201).msg("no").data("").build();
+        } else {
+            //3.2否则兑换成功
+            //3.2.1用户积分修改
+            user.setBonus(result);
+            userCenterFeignClient.updateBonus(UserAddBonusMsgDTO.builder().userId(Integer.parseInt(userId)).bonus(result).build());
+            //3.2.2我的share添加数据
+            midUserShareMapper.insert(MidUserShare.builder().shareId(Integer.parseInt(shareId)).userId(Integer.parseInt(userId)).build());
+            //3.2.3 share的下载次数+1
+            int count = share.getBuyCount();
+            count++;
+            share.setBuyCount(count);
+            shareMapper.updateByPrimaryKey(share);
+            return ResponseResult.builder().code(200).msg("ok").data(share.getDownloadUrl()).build();
+        }
+    }
+
+    @Override
+    public ResponseResult queryMy(Integer userId) {
+        List<MidUserShare> result = midUserShareMapper.select(MidUserShare.builder().userId(userId).build());
+        List<Share> list = new ArrayList<>();
+        result.forEach(share -> {
+            list.add(shareMapper.selectByPrimaryKey(share.getShareId()));
+        });
+        return ResponseResult.builder().code(200).msg("ok").data(list).build();
     }
 }

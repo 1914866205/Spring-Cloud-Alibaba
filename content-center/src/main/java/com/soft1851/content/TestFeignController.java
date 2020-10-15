@@ -3,6 +3,7 @@ package com.soft1851.content;
 import com.soft1851.content.domain.entity.MidUserShare;
 import com.soft1851.content.feignclient.TestBaiduFeignClient;
 import com.soft1851.content.feignclient.TestUserCenterFeignClient;
+import com.soft1851.content.feignclient.UserCenterFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ import javax.annotation.Resource;
 public class TestFeignController {
     @Resource
     private TestUserCenterFeignClient testUserCenterFeignClient;
+    @Resource
+    private UserCenterFeignClient userCenterFeignClient;
     @Autowired
     private TestBaiduFeignClient testBaiduFeignClient;
 
@@ -32,7 +35,8 @@ public class TestFeignController {
 
     @GetMapping(value = "/baidu")
     public String baiduIndex() {
-        return testBaiduFeignClient.index();
+//        return testBaiduFeignClient.index();
+        return userCenterFeignClient.findUserById(1).toString();
     }
 
 }

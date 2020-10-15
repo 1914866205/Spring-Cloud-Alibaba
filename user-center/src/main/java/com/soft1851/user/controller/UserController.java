@@ -40,8 +40,8 @@ public class UserController {
     }
 
     @GetMapping("/find/{id}")
-    public User findById(@PathVariable int id) {
-        return userService.findUserById(id);
+    public ResponseResult findById(@PathVariable int id) {
+        return ResponseResult.builder().msg("200").code(0).data(userService.findUserById(id)).build();
     }
 
     @PostMapping("/post/json")
@@ -51,7 +51,7 @@ public class UserController {
 
     @PostMapping("/update/bonus")
     public User updateBonus(@RequestBody UserAddBonusMsgDTO updateBonus) {
-        System.out.println(updateBonus);
+        System.out.println("积分修改"+updateBonus);
         return userService.updateBonus(updateBonus);
     }
 
@@ -82,21 +82,16 @@ public class UserController {
                 token,
                 jwtOperator.getExpirationTime());
         //构造返回结果
-        System.out.println(8);
-
         LoginRespDTO loginRespDTO = LoginRespDTO.builder()
-                .user(UserRespDTO.builder()
-                        .id(user.getId())
-                        .wxNickname(user.getAvatarUrl())
-                        .bonus(user.getBonus())
-                        .build())
+                .user(userService.findUserById(user.getId()))
                 .token(JwtTokenRespDTO
                         .builder()
                         .token(token)
                         .expirationTime(jwtOperator.getExpirationTime().getTime())
                         .build()).
                         build();
-        return ResponseResult.builder().code(0).data(loginRespDTO).msg("200").build();
+        ResponseResult build = ResponseResult.builder().code(0).data(loginRespDTO).msg("200").build();
+        return build;
 
     }
 }
