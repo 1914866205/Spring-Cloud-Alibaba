@@ -78,7 +78,7 @@ public class ShareController {
 
     @PostMapping("/contribute")
     @ApiOperation(value = "投稿", notes = "投稿")
-    public String contribute(@RequestBody ContributeDto contributeDto) {
+    public ResponseResult contribute(@RequestBody ContributeDto contributeDto) {
         return shareService.addContribute(contributeDto);
     }
 
@@ -95,5 +95,8 @@ public class ShareController {
         return shareService.exchange(userId, shareId);
     }
 
-
+    @GetMapping("/my")
+    public ResponseResult myContribute(@RequestParam String author) {
+        return shareService.myContribute(author);
+    }
 }

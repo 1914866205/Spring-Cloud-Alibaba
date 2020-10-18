@@ -1,5 +1,6 @@
 package com.soft1851.content.controller;
 
+import com.soft1851.content.common.ResponseResult;
 import com.soft1851.content.domain.dto.UserAddBonusMsgDTO;
 import com.soft1851.content.domain.entity.User;
 import com.soft1851.content.service.UserService;
@@ -51,5 +52,15 @@ public class UserController {
         ListenableFuture<ResponseEntity<String>> entity = asyncRestTemplate.getForEntity("http://user-center/user/hello", String.class);
         entity.addCallback(result -> log.info(result.getBody()), (e) -> log.error(e.getMessage()));
         return entity.toString();
+    }
+
+    @GetMapping(value = "/sign")
+    public ResponseResult userSign(@RequestParam Integer userId) {
+        System.out.println("进入签到接口");
+        return userService.userSign(userId);
+    }
+    @GetMapping(value = "/bonusLog")
+    public ResponseResult bonusLog(@RequestParam Integer userId) {
+        return userService.bonusLog(userId);
     }
 }

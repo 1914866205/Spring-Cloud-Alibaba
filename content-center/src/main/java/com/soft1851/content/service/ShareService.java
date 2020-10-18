@@ -44,7 +44,7 @@ public interface ShareService {
      * @param contributeDto
      * @return
      */
-    String addContribute(ContributeDto contributeDto);
+    ResponseResult addContribute(ContributeDto contributeDto);
 
     /**
      * 审核投稿
@@ -69,4 +69,6 @@ public interface ShareService {
      * @return
      */
     ResponseResult queryMy(Integer userId);
+
+    ResponseResult myContribute(String author);
 }

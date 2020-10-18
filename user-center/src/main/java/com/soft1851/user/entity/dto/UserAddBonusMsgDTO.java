@@ -26,4 +26,8 @@ public class UserAddBonusMsgDTO {
      */
     private Integer bonus;
 
+    /**
+     * 修改原因
+     */
+    private String msg;
 }

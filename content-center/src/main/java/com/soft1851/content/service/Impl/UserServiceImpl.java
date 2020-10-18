@@ -1,5 +1,6 @@
 package com.soft1851.content.service.Impl;
 
+import com.soft1851.content.common.ResponseResult;
 import com.soft1851.content.domain.dto.UserAddBonusMsgDTO;
 import com.soft1851.content.domain.entity.User;
 import com.soft1851.content.feignclient.UserCenterFeignClient;
@@ -24,5 +25,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateBonus(UserAddBonusMsgDTO updateBonus) {
         return userCenterFeignClient.updateBonus(updateBonus);
+    }
+
+    @Override
+    public ResponseResult userSign(Integer userId) {
+        System.out.println("进入签到Service");
+        return userCenterFeignClient.userSign(userId);
+    }
+
+    @Override
+    public ResponseResult bonusLog(Integer userId) {
+        System.out.println("准备进入usercenter");
+        return userCenterFeignClient.bonusLog(userId);
     }
 }

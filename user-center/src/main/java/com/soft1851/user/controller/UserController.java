@@ -8,12 +8,14 @@ import com.soft1851.user.entity.User;
 import com.soft1851.user.entity.dto.*;
 import com.soft1851.user.service.UserService;
 import com.soft1851.user.util.JwtOperator;
+import com.sun.org.apache.regexp.internal.RE;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +53,7 @@ public class UserController {
 
     @PostMapping("/update/bonus")
     public User updateBonus(@RequestBody UserAddBonusMsgDTO updateBonus) {
-        System.out.println("积分修改"+updateBonus);
+        System.out.println("积分修改" + updateBonus);
         return userService.updateBonus(updateBonus);
     }
 
@@ -92,6 +94,16 @@ public class UserController {
                         build();
         ResponseResult build = ResponseResult.builder().code(0).data(loginRespDTO).msg("200").build();
         return build;
+    }
 
+    @GetMapping(value = "/sign")
+    public ResponseResult userSign(@RequestParam Integer userId) {
+        System.out.println("进入签到user控制器");
+        return userService.userSign(userId);
+    }
+
+    @PostMapping(value = "/bonusLog")
+    public ResponseResult bonusLog(@RequestParam Integer userId) {
+        return userService.bonusLog(userId);
     }
 }

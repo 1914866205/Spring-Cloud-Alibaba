@@ -136,7 +136,7 @@ public class ShareServiceImpl implements ShareService {
     }
 
     @Override
-    public String addContribute(ContributeDto contributeDto) {
+    public ResponseResult addContribute(ContributeDto contributeDto) {
         Share share = new Share();
         //属性的装配
 //        BeanUtils.copyProperties(share, contributeDto);
@@ -161,7 +161,8 @@ public class ShareServiceImpl implements ShareService {
         share.setReason("");
         shareMapper.insert(share);
         midUserShareMapper.insert(MidUserShare.builder().userId(contributeDto.getUserId()).shareId(share.getId()).build());
-        return "投稿成功";
+        userCenterFeignClient.updateBonus(UserAddBonusMsgDTO.builder().userId(contributeDto.getUserId()).msg("投稿加分").bonus(5).build());
+        return ResponseResult.builder().msg("投稿成功").code(200).data("").build();
     }
 
     @Override
@@ -221,7 +222,11 @@ public class ShareServiceImpl implements ShareService {
             count++;
             share.setBuyCount(count);
             shareMapper.updateByPrimaryKey(share);
-            return ResponseResult.builder().code(200).msg("ok").data(share.getDownloadUrl()).build();
+            //3.2.4 返回用户当前积分
+            List list=new ArrayList();
+            list.add(share.getDownloadUrl());
+            list.add(user.getBonus());
+            return ResponseResult.builder().code(200).msg("ok").data(list).build();
         }
     }
 
@@ -233,5 +238,11 @@ public class ShareServiceImpl implements ShareService {
             list.add(shareMapper.selectByPrimaryKey(share.getShareId()));
         });
         return ResponseResult.builder().code(200).msg("ok").data(list).build();
+    }
+
+    @Override
+    public ResponseResult myContribute(String author) {
+        List<Share> shares = shareMapper.select(Share.builder().author(author).build());
+        return ResponseResult.builder().msg("ok").code(200).data(shares).build();
     }
 }

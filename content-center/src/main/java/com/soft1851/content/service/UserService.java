@@ -1,5 +1,6 @@
 package com.soft1851.content.service;
 
+import com.soft1851.content.common.ResponseResult;
 import com.soft1851.content.domain.dto.UserAddBonusMsgDTO;
 import com.soft1851.content.domain.entity.User;
 
@@ -12,4 +13,8 @@ import com.soft1851.content.domain.entity.User;
  */
 public interface UserService {
     User updateBonus(UserAddBonusMsgDTO updateBonus);
+
+    ResponseResult userSign(Integer userId);
+
+    ResponseResult bonusLog(Integer userId);
 }
