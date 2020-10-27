@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/tabbar/home/home",
+    "pages/tabbar/contribute/contribute",
+    "pages/tabbar/profile/profile",
+    "pages/home/share-detail/share-detail",
+    "pages/home/exchange/exchange",
+    "pages/profile/my-bonus-log/my-bonus-log",
+    "pages/profile/my-exchange/my-exchange",
+    "pages/profile/my-contribute/my-contribute",
+    "pages/profile/audit/audit",
+    "pages/profile/audit-detail/audit-detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "share-app",
+    "navigationBarBackgroundColor": "#EC544D",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#f7f3f9",
+    "color": "#8F8F94",
+    "selectedColor": "#f33e54",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/home/home",
+        "iconPath": "static/img/tabbar/home.png",
+        "selectedIconPath": "static/img/tabbar/homeactive.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabbar/contribute/contribute",
+        "iconPath": "static/img/tabbar/contribute.png",
+        "selectedIconPath": "static/img/tabbar/contributeactive.png",
+        "text": "投稿"
+      },
+      {
+        "pagePath": "pages/tabbar/profile/profile",
+        "iconPath": "static/img/tabbar/me.png",
+        "selectedIconPath": "static/img/tabbar/meactive.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap18.json"
+}
